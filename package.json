@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=dev nodemon --exec babel-node src/index.js",
-    "lint": "nodemon --exec eslint src/**/*.js"
+    "lint": "eslint src/index.js"
   },
   "author": "Mohammad Arsalan",
   "license": "ISC",
@@ -14,8 +14,10 @@
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
     "cross-env": "^5.2.0",
+    "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "graphql": "^0.13.2",
+    "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.1.7"
   },
   "devDependencies": {

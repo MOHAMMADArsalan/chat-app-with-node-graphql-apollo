@@ -1,10 +1,22 @@
 import { ApolloServer } from 'apollo-server-express';
 import express from 'express';
+
 import typeDefs from './schema/schema';
-import resolvers from "./schema/resolvers";
+import resolvers from './schema/resolvers';
+import './config/dbConnection';
+import middlewares from './config/middlerware';
 
 const app = express();
-const server = new ApolloServer({ typeDefs, resolvers });
+middlewares(app);
+
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context: ({ req }) => {
+    console.log(req);
+    return { user: req.user };
+  },
+});
 
 server.applyMiddleware({ app });
 
